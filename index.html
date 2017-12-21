@@ -5,45 +5,42 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>My Staff Practice</title>
 	<meta name="description" content="Learn the notes of the musical staff by creating a custom exercise.">
-	<link rel="stylesheet" href="noteapp.css">
+	<link rel="stylesheet" href="stylesheets/reset.css">
+	<link rel="stylesheet" href="stylesheets/noteapp.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
 	<script src="noteapp.js"></script>
-	<link href='https://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-	<div class="container">
-		
-		<div id="header" class="">
-			
-			<h1 id="challenge-name">My Staff Practice</h1>
-				
-				<p class="instructions">Select some notes to practice.</p>
-				
-			<div class="score">
-				<p>Correct: <span class="correct">0</span></p>
-				<p class="countdown">Time: 
-					<span class="minutes">3</span> :  
-					<span class="seconds">00</span>  </p>
-			</div>
-
+	<header>
+		<nav>
+			<div>Menu</div>
+			<ul>
+				<li>Practice</li>
+				<li>View Progress</li>
+				<li>My Account</li>
+			</ul>
+		</nav>	
+		<h1>My Staff Practice</h1>		
+		<div class="score">
+			<p>Correct: <span class="correct">0</span></p>
+			<p>Time: <span class="minutes">3</span>:<span class="seconds">00</span></p>
 		</div>
+	</header>
 
-		<div id="staff" class="">
-
+	<main>
+		<p class="instructions">Select some notes to practice.</p>
+				
+		<div id="staff">
 			<div class="treble-lines">
-
+				<img class="trebleclef" src="images/trebleclef.png" alt="treble clef"></img>
 				<div class="line one"></div>
 				<div class="line two"></div>
 				<div class="line three"></div>
 				<div class="line four"></div>
 				<div class="line five"></div>
 			
-				<img class="trebleclef" src="images/trebleclef.png" alt="treble clef"></img>
-
-				<img class="bassclef" style="display:none" src="bassclef.png" alt="bass clef"></img>
-
 				<div class="wrapper pick C6t ll">
 					<div class="note C6t">C</div>
 					<div class="ledger-line" style="z-index:0"></div>
@@ -86,20 +83,15 @@
 					<div class="ledger-line-above"></div>
 					<div class="ledger-line" style="top:-2rem"></div>
 				</div>
-
 			</div>
 
 			<div class="lines bass-lines">
-				
 				<img class="bassclef" src="images/bassclef.png" alt="bass clef"></img>
-				<img class="trebleclef" style="display:none" src="trebleclef.png" alt="treble clef"></img>
-				
 				<div class="line one"></div>
 				<div class="line two"></div>
 				<div class="line three"></div>
 				<div class="line four"></div>
 				<div class="line five"></div>
-
 		
 				<div class="wrapper pick F4b ll">
 					<div class="note F4b">F</div>
@@ -143,15 +135,10 @@
 					<div class="ledger-line" style="z-index:-1"></div>
 					<div class="ledger-line" style="top:-1rem"></div>
 				</div>
-
 			</div>
-			
-			
-	
 		</div>
-		<div id="buttons">
-			<button type="button" class="next-button">Next staff</button>
 
+		<section id="buttons">
 			<button class="start-button" type="button">Go!</button>
 
 			<button type="button" class="quiz-button A">A</button>
@@ -161,9 +148,8 @@
 			<button type="button" class="quiz-button E">E</button>
 			<button type="button" class="quiz-button F">F</button>
 			<button type="button" class="quiz-button G">G</button>
-		</div>
-		
-	</div> <!--close container-->
+		</section>
+	</main>
 	<div class="end-screen">
 				<h1>Time's Up!</h1>
 				<h3>You got <span class="correct"></span> notes in 3 minutes!</h3>

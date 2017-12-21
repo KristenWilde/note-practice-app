@@ -1,52 +1,71 @@
-
-@media screen and (orientation: portrait) {
-	.container {
-		width: 100%;
-	}
-}
-
-@media screen and (orientation: landscape) {
-
-}
-
-@media screen and (min-width: 500px) {
-	.container {
-		width: 42rem;
-		margin: auto;
-		box-sizing: border-box;
-		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	}
-}
-
-@media screen and (min-height: 630px) {
-}
-
-	.bass-lines {
-		top: 20rem;
-		display: block;
-	}
-	#staff {
-		height: 33rem;
-	}
-	.next-button {
-		display: none;
-	}
-	.start-button {
-		display: block;
-	}
-
-
 html {
 	font-size: 14px;
 }	
 
-.small{
-	font-size: 8px;
+body {
+	background: linear-gradient(#F9EF63 18%, #2CDB38 65%, #341BDB 100%);
+	font-family: Helvetica;
+	height: 100vh;
 }
 
-body {
-	background-color: rgb(240, 240, 240);
-	font-family: Helvetica;
+p {
+	text-align: center;
+}
+
+header {
+	color: #eee;
+	font-size: 18px;
+	overflow: auto;
+}
+
+header, nav ul {
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.3), 2px 2px 2px rgba(0,0,0,0.3);
+	background: #222;
+}
+
+header div, header h1, nav li {
+	width: 200px;
+	height: 3rem;
+	box-sizing: border-box;
+	line-height: 3rem;
+	vertical-align: middle;
+	padding-left: 20px;
+}
+
+nav div {
+	border-right: 1px solid #ccc;
+	float: left;
+}
+
+nav ul {
+	position: absolute;
+	top: 3rem;
+	z-index: 3;
+}
+
+nav li {
+	border-top: 1px solid #ccc;
+}
+
+header h1 {
+	font-weight: normal;
+	font-size: 24px;
+	float: left;
+	margin-left: 50px;
+	width: auto;
+}
+
+.score {
+	float: right;
+	width: 250px;
+	border-left: 1px solid #ccc;
+	text-align: center;
+	padding: 0;
+}
+
+.score p {
+	display: inline-block;
+	width: 115px;
 }
 
 .start-screen {
@@ -64,49 +83,17 @@ body {
 	display: none;
 }
 
-
-.container {
+main {
 	text-align: center;
 	background-color: white;
-}
-
-#header {
-	height: 6rem;
-}
-
-#header h1 {
-	text-align: center;
-	background-color: tomato;
-	padding: .3rem;
-	margin: 0;
-}
-
-#header p {
-	text-align: center;
-}
-.score p {
-	display: inline;
-}
-
-.score {
-	background-color: khaki;
-	font-size: 1.2rem;
-	padding: .5rem .5rem .5rem;
-	display: none;
-}
-
-.correct {
-	font-size: 1.5rem;
-}
-
-.countdown {
-	padding-left: 5rem;
+	padding: 20px 10px;
 }
 
 #staff {
 	position: relative;
 	padding: 0 1rem;
 	background-color: white;
+	height: 33rem;
 }
 
 .treble-lines {
@@ -115,6 +102,7 @@ body {
 }
 .bass-lines {
 	position: relative;
+	top: 20rem;
 }
 
 .note {
@@ -363,10 +351,17 @@ button {
 	display: none;
 }
 
-
-
 button:active {
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+@media screen and (min-width: 500px) {
+	main {
+		width: 42rem;
+		margin: 10px auto;
+		box-sizing: border-box;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	}
 }
 
 
