@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Staff Practice</title>
+  <meta name="description" content="Learn the notes of the musical staff by creating a custom exercise.">
+  <link rel="stylesheet" href="noteapp.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
+  <link href='https://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+  <div id="container">
+    
+    <div id="header" class="">
+      
+      <h1 id="challenge-name">My Staff Practice</h1>
+    
+        
+        <p class="instructions">Select some notes to practice.</p>
+        
+      <div class="score">
+        <p>Correct: <span class="correct">0</span></p>
+        <p class="countdown">Time: 
+          <span class="minutes">3</span> :  
+          <span class="seconds">00</span>  </p>
+      </div>
+
+    </div>
+
+    <div id="staff" class="">
+
+      <div class="treble-lines">
+
+        <div class="line one"></div>
+        <div class="line two"></div>
+        <div class="line three"></div>
+        <div class="line four"></div>
+        <div class="line five"></div>
+      
+        <img class="trebleclef" src="images/trebleclef.png" alt="treble clef"></img>
+
+        <img class="bassclef" style="display:none" src="bassclef.png" alt="bass clef"></img>
+
+        <div class="wrapper pick C6 ll">
+          <div class="note" id="C6">C</div>
+          <div class="ledger-line" style="z-index:0"></div>
+          <div class="ledger-line" style="top:3rem"></div>
+        </div>
+        <div class="wrapper pick B5 ll">
+          <div class="note" id="B5">B</div>
+          <div class="ledger-line" style="top:2rem"></div>
+        </div>
+        <div class="wrapper pick A5 ll">
+          <div class="note" id="A5">A</div>
+          <div class="ledger-line" style="z-index:0"></div>
+        </div>
+        <div class="note pick" id="G5">G</div>
+        <div class="note pick" id="F5">F</div>
+        <div class="note pick" id="E5">E</div>
+        <div class="note pick" id="D5">D</div>
+        <div class="note pick" id="C5">C</div>
+        <div class="note pick" id="B4">B</div>
+        <div class="note pick" id="A4">A</div>
+        <div class="note pick" id="G4">G</div>
+        <div class="note pick" id="F4">F</div>
+        <div class="note pick" id="E4t">E</div>
+        <div class="note pick" id="D4t">D</div>
+        <div class="wrapper pick" id="C4t">
+          <div class="note" >C</div>
+          <div class="ledger-line" style="z-index:0"></div>
+        </div>
+        <div class="wrapper pick B3t ll">
+          <div class="note" id="B3t">B</div>
+          <div class="ledger-line-above"></div>
+        </div>
+        <div class="wrapper pick A3t ll">
+          <div class="note" id="A3t">A</div>
+          <div class="ledger-line" style="z-index:0"></div>
+          <div class="ledger-line" style="top:-1rem"></div>
+        </div>
+        <div class="wrapper pick G3t ll">
+          <div class="note" id="G3t">G</div>
+          <div class="ledger-line-above"></div>
+          <div class="ledger-line" style="top:-2rem"></div>
+        </div>
+
+      </div>
+
+      <div class="lines bass-lines">
+        
+        <img class="bassclef" src="images/bassclef.png" alt="bass clef"></img>
+        <img class="trebleclef" style="display:none" src="trebleclef.png" alt="treble clef"></img>
+        
+        <div class="line one"></div>
+        <div class="line two"></div>
+        <div class="line three"></div>
+        <div class="line four"></div>
+        <div class="line five"></div>
+
+    
+        <div class="wrapper pick F4b ll">
+          <div class="note" id="F4b">F</div>
+          <div class="ledger-line-below"></div>
+          <div class="ledger-line" style="top:4rem"></div>
+        </div>
+        <div class="wrapper pick E4b ll">
+          <div class="note" id="E4b">E</div>
+          <div class="ledger-line" style="z-index:0"></div>
+          <div class="ledger-line" style="top:3rem"></div>
+        </div>
+        <div class="wrapper pick D4b ll">
+          <div class="note" id="D4b">D</div>
+          <div class="ledger-line-below"></div>
+        </div>
+        <div class="wrapper pick" id="C4b">
+          <div class="note" >C</div>
+          <div class="ledger-line" style="z-index:0"></div>
+        </div>
+        <div class="note pick" id="B3b">B</div>
+        <div class="note pick" id="A3b">A</div>
+        <div class="note pick" id="G3b">G</div>
+        <div class="note pick" id="F3">F</div>
+        <div class="note pick" id="E3">E</div>
+        <div class="note pick" id="D3">D</div>
+        <div class="note pick" id="C3">C</div>
+        <div class="note pick" id="B2">B</div>
+        <div class="note pick" id="A2">A</div>
+        <div class="note pick" id="G2">G</div>
+        <div class="note pick" id="F2">F</div>
+        <div class="wrapper pick E2 ll">
+          <div class="note" id="E2">E</div>
+          <div class="ledger-line" style="z-index:-1"></div>
+        </div>
+        <div class="wrapper pick D2 ll">
+          <div class="note" id="D2">D</div>
+          <div class="ledger-line-above"></div>
+        </div>
+        <div class="wrapper pick C2 ll">
+          <div class="note" id="C2">C</div>
+          <div class="ledger-line" style="z-index:-1"></div>
+          <div class="ledger-line" style="top:-1rem"></div>
+        </div>
+
+      </div>
+      
+      
+  
+    </div>
+    <div id="buttons">
+      <button type="button" class="next-button">Next staff</button>
+
+      <button class="start-button" type="button">Go!</button>
+
+      <button type="button" class="quiz-button A">A</button>
+      <button type="button" class="quiz-button B">B</button>
+      <button type="button" class="quiz-button C">C</button>
+      <button type="button" class="quiz-button D">D</button>
+      <button type="button" class="quiz-button E">E</button>
+      <button type="button" class="quiz-button F">F</button>
+      <button type="button" class="quiz-button G">G</button>
+    </div>
+    
+  </div> <!--close container-->
+  <div class="end-screen">
+        <h1>Time's Up!</h1>
+        <h3>You got <span class="correct"></span> notes in 3 minutes!</h3>
+        <h2 class="message"></h2>
+              
+  </div>
+  
+  <audio preload="auto" id="c6" src="sounds/39212_c6.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="b5" src="sounds/39211_b5.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="a5" src="sounds/39209_a5.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="g5" src="sounds/39207_g5.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="f5" src="sounds/39205_f5.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="e5" src="sounds/39204_e5.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="d5" src="sounds/39202_d5.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="c5" src="sounds/39200_c5.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="b4" src="sounds/39199_b4.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="a4" src="sounds/39197_a4.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="g4" src="sounds/39195_g4.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="f4" src="sounds/39193_f4.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="e4" src="sounds/39191_e4.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="d4" src="sounds/39189_d4.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="c4" src="sounds/39187_c4.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="b3" src="sounds/39186_b3.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="a3" src="sounds/39184_a3.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="g3" src="sounds/39182_g3.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="f3" src="sounds/39180_f3.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="e3" src="sounds/39179_e3.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="d3" src="sounds/39177_d3.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="c3" src="sounds/39175_c3.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="b2" src="sounds/39174_b2.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="a2" src="sounds/39172_a2.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="g2" src="sounds/39170_g2.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="f2" src="sounds/39168_f2.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="e2" src="sounds/39167_e2.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="d2" src="sounds/39165_d2.wav" type="audio/wav"></audio>
+  <audio preload="auto" id="c2" src="sounds/39163_c2.wav" type="audio/wav"></audio>
+
+  <script>
+  $(document).ready(function() {
+    
+
+
+
+    var allNotes = [{pitch: "C6", position: "-5rem", staff: "t", sound: 'sounds/39212_c6.wav', classes: ".ledger-line-through .ledger-line-3below"},
+            {pitch: "B5", position: "-4rem", staff: "t", sound: 'sounds/39211_b5.wav'},
+            {pitch: "A5", position: "-3rem", staff: "t", sound: 'sounds/39209_a5.wav'},
+
+            {pitch: "G5", position: "-2rem", staff: "t", sound: 'sounds/39207_g5.wav'},
+            {pitch: "F5", position: "-1rem", staff: "t", sound: 'sounds/39205_f5.wav'},
+            {pitch: "E5", position: "0", staff: "t", sound: 'sounds/39204_e5.wav'},
+            {pitch: "D5", position: "1rem", staff: "t", sound: "sounds/39202_d5.wav"}, 
+            {pitch: "C5", position: "2rem", staff: "t", sound: "sounds/39200_c5.wav"}, 
+            {pitch: "B4", position: "3rem", staff: "t", sound: 'sounds/39199_b4.wav'}, 
+            {pitch: "A4", position: "4rem", staff: "t", sound: 'sounds/39197_a4.wav'}, 
+            {pitch: "G4", position: "5rem", staff: "t", sound: 'sounds/39195_g4.wav'}, 
+            {pitch: "F4", position: "6rem", staff: "t", sound: 'sounds/39193_f4.wav'}, 
+            {pitch: "E4t", position: "7rem", staff: "t", sound: 'sounds/39191_e4.wav'}, 
+            {pitch: "D4t", position: "8rem", staff: "t", sound: 'sounds/39189_d4.wav'}, 
+            {pitch: "C4t", position: "9rem", staff: "t", sound: 'sounds/39187_c4.wav', classes: "ledger-line"},
+            
+            {pitch: "C4b", position: "-3rem", staff: "b", sound: 'sounds/39187_c4.wav', classes: "ledger-line"},
+            {pitch: "B3b", position: "-2rem", staff: "b", sound: 'sounds/39186_b3.wav'},
+            {pitch: "A3b", position: "-1rem", staff: "b", sound: 'sounds/39184_a3.wav'},
+            {pitch: "G3b", position: "0", staff: "b", sound: 'sounds/39182_g3.wav'},
+            {pitch: "F3", position: "1rem", staff: "b", sound: 'sounds/39180_f3.wav'},
+            {pitch: "E3", position: "2rem", staff: "b", sound: 'sounds/39179_e3.wav'},
+            {pitch: "D3", position: "3rem", staff: "b", sound: "sounds/39177_d3.wav"}, 
+            {pitch: "C3", position: "4rem", staff: "b", sound: "sounds/39175_c3.wav"}, 
+            {pitch: "B2", position: "5rem", staff: "b", sound: 'sounds/39174_b2.wav'}, 
+            {pitch: "A2", position: "6rem", staff: "b", sound: 'sounds/39172_a2.wav'},
+            {pitch: "G2", position: "7rem", staff: "b", sound: 'sounds/39170_g2.wav'}, 
+            {pitch: "F2", position: "8rem", staff: "b", sound: 'sounds/39168_f2.wav'}, 
+            {pitch: "E2", position: "9rem", staff: "b", sound: 'sounds/39167_e2.wav'}, 
+            {pitch: "D2", position: "10rem", staff: "b", sound: 'sounds/39165_d2.wav'},
+            {pitch: "C2", position: "11rem", staff: "b", sound: 'sounds/39163_c2.wav'}];
+
+
+    var trebleArray = [];
+    var bassArray = [];
+    var activeArray = [];
+    var numberCorrect = 0;
+
+
+
+    function shuffle(array) {
+      var m = array.length, t, p;
+      // While there remain elements to shuffle…
+      while (m) {
+        // Pick a remaining element…
+        p = Math.floor(Math.random() * m--);
+        // And swap it with the current element.
+        t = array[m];
+        array[m] = array[p];
+        array[p] = t;
+      }
+      return array;
+    }
+
+    var i = 0;
+    var currentNote; //note object in array
+    var currentDiv; //jquery-created div in dom
+    var nextNote; // note object in array
+    var nextDiv // jquery-created div in dom
+    var previousNote = {}; //note object in array
+    var currentStaff // div.treble-lines or div.bass-lines jquery object
+    var nextStaff
+
+    function storePreviousNote() { 
+      previousNote = activeArray[i];
+    }
+
+    function switchClefs() {
+      if (activeArray[i].staff === "t" ) {
+        $(".bassclef").addClass("rotate-out");
+        setTimeout( function(){
+          $(".bassclef").hide();
+          $(".trebleclef").addClass("rotate-in").show("fade");
+          $('.quiz-note').show("fade");
+        }, [300]);
+      } else {
+        $(".trebleclef").addClass("rotate-out");
+        setTimeout( function(){
+          $(".trebleclef").hide();
+          $(".bassclef").addClass("rotate-in").show("fade");
+          $('.quiz-note').show("fade");
+        }, [300]);
+      } 
+    }
+
+    function switchArray() {
+      i = 0;
+              
+      if (activeArray == trebleArray) {
+        if (bassArray.length > 0) {
+          activeArray = bassArray;
+        }
+      } else if (activeArray == bassArray) {
+        if (trebleArray.length > 0) {
+          activeArray = trebleArray;
+        } 
+      } 
+      
+      shuffle(activeArray);
+      return activeArray;
+      console.log(activeArray);
+    }
+    
+
+
+    function buildNextNote(noteObject){
+      
+      //assign current staff
+      function assignStaff(){
+        if (noteObject.staff === "t"){
+          currentStaff = $(".treble-lines");
+        } else {
+          currentStaff = $(".bass-lines");
+        }
+      }
+      assignStaff();
+
+      let id = noteObject.pitch;
+      if (noteObject.classes){
+        var addHtml = "<div class=" + noteObject.classes + "></div>";
+      }
+      //create div and append.
+      nextDiv = $("<div/>")
+        .attr("id", id)
+        .addClass("note whole-note next-note")
+        .html(addHtml)//ledger lines
+        .appendTo(currentStaff);
+      
+    } 
+
+    function assignCurrent(){
+      currentNote = activeArray[i]; //in start-button event listener
+
+    }
+
+    function moveToCurrentNote(jqDiv){
+      jqDiv.addClass("quiz-note").animate({
+        opacity: 1,
+        left: "48%"
+      }).removeClass("next-note");
+      currentDiv = jqDiv;
+    } 
+
+    function newNote() {
+      
+      //currentNote = activeArray[i];
+      
+      nextNote = activeArray[i+1] ? activeArray[i+1] : switchArray()[i];
+
+      buildNextNote(nextNote);
+      console.log();
+
+
+
+      
+
+      //let rem = activeArray[i].position;
+      //$(".quiz-note").css({"top": rem, "background-color": "black"}).html("");
+      
+      //add ledger lines using css pseudo elements
+      if (activeArray[i].classes) {
+        $(".quiz-note").html("<div class=" + activeArray[i].classes + "></div>");
+      }; 
+      //switch clefs if necessary.
+
+      if ($("#staff").css("height") == "20rem") {
+        if (activeArray[i].staff != previousNote.staff) {
+          switchClefs(); // includes showing the quiz note.
+        }
+      } else {
+        $('.quiz-note').show("fade");
+      }
+
+
+  
+    }
+
+    function startCount() {
+      
+      var min = 3;
+      var sec = 00;
+
+      function twoDigits( n ){
+            return (n <= 9 ? "0" + n : n);
+        }
+      setInterval(function() {
+        sec--;
+        if (sec === -1) {
+          sec = 59;
+          min--;
+          $(".minutes").html(min);
+        }
+        $(".seconds").html(twoDigits(sec));
+        if (min === 0 && sec === 0) {
+          clearInterval(startCount);
+        }
+
+      }, 1000);
+    }
+
+    function logArray(array) {
+      for (var k = array.length - 1; k >= 0; k--) {
+        console.log(array[k]); 
+      }
+    }
+
+    function timesUp() {
+      function message() {
+        if (numberCorrect <=10) {
+          $(".message").text("Keep practicing!").show("fade");
+        } else if (numberCorrect <= 20) {
+          $(".message").text("Way to go!").show("drop", "right");
+        } else if (numberCorrect <= 30) {
+          $(".message").text("Awesome!").show("bounce");
+        } else if (numberCorrect > 30) {
+          $(".message").text("Amazing!!").show("bounce");
+        }
+      }
+      function workOn() {
+      }
+      $(".end-screen").show("drop", "up");
+      $(".correct").text(numberCorrect);
+      setTimeout(message, [700]);
+    }
+
+    function colorSelect(){
+      $(this).toggleClass("selected");
+    }
+
+     
+
+    var columnCounter = 2;
+
+  $(".pick").each(function(){
+    if (columnCounter === 2) {columnCounter = 1;}
+    else {columnCounter = 2;}
+    var column = "col" + columnCounter; 
+    $(this).addClass(column);
+  })
+
+  //To check if all audio files have loaded:
+  function audioReady(){
+    return $.when.apply($, $('audio').map(function(){
+      var ready = new $.Deferred();
+      $(this).one('canplay', ready.resolve);
+      return ready.promise();
+    }));
+  }
+
+  audioReady().then(function(){
+    //$("h5").text("Audio files are loaded.")
+  });
+
+//Event Listeners:
+
+    $(".pick").on("click", ".note", colorSelect);
+    $(".pick").on("click", colorSelect);
+
+    $(".next-button").on("click", function(){
+      event.preventDefault();
+      $(".treble-lines").toggle("fade");
+      $(".bass-lines").toggle("fade");
+      
+      if ( $(".selected") ) {
+        $(".start-button").show();
+      }
+    });
+
+    $(".start-button").on("click", function(){
+      event.preventDefault();
+      //For smaller screens, make div#staff smaller to fit both staves.
+      //if ( $("#container").css("width", "100%") ){
+      //  $("html").css("font-size", "8px");
+      //}
+
+      //build the arrays:
+      $(".selected").map(function(){
+        for (let n=0; n<allNotes.length; n++) {
+          if ($(this).attr("id") == allNotes[n].pitch) {
+            if (allNotes[n].staff === "t") {
+              trebleArray.push(allNotes[n]);
+            } else {
+              bassArray.push(allNotes[n]);
+            }
+          }
+        }
+      });
+
+      //assign activeArray 
+      if (trebleArray.length > 0) {
+        activeArray = trebleArray;
+      } else if (bassArray.length > 0) {
+        activeArray = bassArray;
+      } else {
+        alert("Please select some notes to practice.");
+      }
+      
+      
+
+      $(".pick").hide("fade");
+      $(".line").css("z-index", "3");
+      shuffle(activeArray); 
+
+      // assign value so that newNote works.
+      if ($(".treble-lines").hasClass("rotate-in")){
+        previousNote.staff = "t";
+      } else {
+        previousNote.staff = "b";
+      }
+
+      // show buttons and score bar
+      $(".instructions, .start-button, .next-button").hide("fade", "slow");
+      setTimeout(function(){
+        $(".score").show("fade", "slow");
+      }, [500]);    
+      setTimeout( function(){
+        $(".quiz-button").show("fade", "slow");
+      }, [500]);
+
+      assignCurrent();
+      buildNextNote(currentNote);
+      moveToCurrentNote(nextDiv);
+
+      startCount();
+      setTimeout(newNote, [200]);
+      setTimeout(timesUp, [180000]);
+    });
+
+    $(".quiz-button").on("click", function(){
+      event.preventDefault();
+      if ($(this).text() == currentDiv.attr("id").charAt(0)) {
+        //increase score
+        numberCorrect++;
+        $('.correct').text(numberCorrect);
+
+        //find and play sound
+        let soundId = "#" + currentDiv.attr("id").substring(0,2).toLowerCase();
+        $(soundId).trigger("play");
+        console.log(soundId);
+        // store previous note
+        storePreviousNote();
+        
+        //fade
+        currentDiv.css("background-color", "rgb(177, 54, 177)")
+          .animate({
+            opacity: 0}, 
+            400, //time it takes to fade
+            function change(){ //will run after the animation is done
+              currentDiv.remove();
+              moveToCurrentNote(nextDiv);
+              newNote();//next note & switch arrays if needed.
+              i++
+              if (i > activeArray.length) {
+                switchArray();
+              }
+            } );
+        $('.ledger-line').css("background-color", "rgb(177, 54, 177)").hide("fade", "slow");
+
+        
+        
+        
+      } else {
+        currentDiv.effect("shake");
+      }
+    });
+
+  });//close document ready function 
+
+  </script>
+</body>
+</html>
