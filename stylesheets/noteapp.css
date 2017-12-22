@@ -8,64 +8,94 @@ body {
 	height: 100vh;
 }
 
-p {
-	text-align: center;
-}
-
 header {
-	color: #eee;
+	color: #fff;
 	font-size: 18px;
 	overflow: auto;
 }
 
 header, nav ul {
 	box-shadow: 2px 2px 3px rgba(0,0,0,0.3), 2px 2px 2px rgba(0,0,0,0.3);
-	background: #222;
+	background: #1E1E1E;
 }
 
-header div, header h1, nav li {
-	width: 200px;
-	height: 3rem;
+header div, header h1, nav li, header p {
+	height: 3.2rem;
 	box-sizing: border-box;
-	line-height: 3rem;
-	vertical-align: middle;
+	line-height: 3.2rem;
+}
+
+nav li {
+	width: 180px;
 	padding-left: 20px;
+	border-top: 1px solid #333;
 }
 
 nav div {
-	border-right: 1px solid #ccc;
 	float: left;
+}
+
+#nav-toggle{
+	display: block;
+	cursor: pointer;
+	padding: 20px 60px 30px 20px;
+	width: auto;
+	height: auto;
+}
+
+#nav-toggle span , #nav-toggle span:before , #nav-toggle span:after{
+	position: absolute;
+	content: '';
+	display: block;
+	background: white;
+	width: 36px;
+	height: 5px;
+	border-radius: 1px;
+	transition: all 500ms ease;
+}
+#nav-toggle span:before{
+	top: -10px;
+}
+#nav-toggle span:after{
+	bottom: -10px;
+}
+#nav-toggle:active span:before, #nav-toggle.active span:after {
+  top: 0;
+}
+#nav-toggle:active span{
+	background: transparent;
+}
+#nav-toggle:active span:before{
+	transform: rotate(45deg);
+}
+#nav-toggle:active span:after{
+	transform: rotate(-45deg);
 }
 
 nav ul {
 	position: absolute;
-	top: 3rem;
+	top: 3.2rem;
 	z-index: 3;
-}
-
-nav li {
-	border-top: 1px solid #ccc;
 }
 
 header h1 {
 	font-weight: normal;
 	font-size: 24px;
-	float: left;
-	margin-left: 50px;
+/*	float: left;*/
+	/*margin-left: 50px;*/
+	display: inline;
 	width: auto;
-}
-
-.score {
-	float: right;
-	width: 250px;
-	border-left: 1px solid #ccc;
-	text-align: center;
 	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -276px;
 }
 
-.score p {
-	display: inline-block;
-	width: 115px;
+header p {
+	float: right;
+	/*padding-right: 15px;*/
+	width: 105px;
 }
 
 .start-screen {
@@ -313,42 +343,35 @@ main {
 	display: none;
 }
 
-.Buttons { 
-	position: relative;
-	padding-bottom: 3rem; 
-	background-color: white;
-	display: flex;
-	display: -webkit-flex;
-	-webkit-flex-flow: row wrap;
-	flex-flow: row wrap;
-	-webkit-justify-content: center;
-	justify-content: center;
-}
-
 button {	
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.2), 1px 1px 2px rgba(0,0,0,0.3);
   	transition: all 0.2s ease-in-out;
-}
-
-.next-button {
-	height: 3.2rem;
-	margin-right: 1rem;
-	padding: 1rem;
-	font-size: 1.1rem;
 }
 
 .start-button {
 	height: 3.2rem;
-	padding: 1rem;
-	font-size: 1.1rem;
+	width: 5.2rem;
+	box-sizing: border box;
+	line-height: 3.2rem;
+	font-weight: bold;
+	font-size: 1.5rem;
+	color: #341BDB;
+	background: rgb(70, 235, 69);
+	border-radius: 4px;
+	display: none;
 }
 
 .quiz-button {
-	margin: .3rem;
+	margin: 0;
 	min-width: 4.5rem;
 	height: 3rem;
+	font-size: 1.4rem;
 	font-weight: bold;
-	display: none;
+	background-color: rgb(70, 235, 69);
+	color: #341BDB;
+	display: inline-block;
+	/*border-radius: 0;*/
+	border: none;
 }
 
 button:active {
@@ -357,10 +380,18 @@ button:active {
 
 @media screen and (min-width: 500px) {
 	main {
-		width: 42rem;
+		width: 40rem;
 		margin: 10px auto;
 		box-sizing: border-box;
 		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	}
+}
+
+@media screen and (max-width: 750px) {
+	header h1 {
+		float: left;
+		position: static;
+		margin: 0;
 	}
 }
 
