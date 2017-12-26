@@ -19,10 +19,11 @@ header, nav ul {
 	background: #1E1E1E;
 }
 
-header div, header h1, nav li, header p {
-	height: 3.2rem;
+header div, header h1, nav li, header p, #nav-toggle {
+	height: 50px;
 	box-sizing: border-box;
-	line-height: 3.2rem;
+	line-height: 50px;
+	z-index: 2;
 }
 
 nav li {
@@ -31,16 +32,12 @@ nav li {
 	border-top: 1px solid #333;
 }
 
-nav div {
-	float: left;
-}
-
 #nav-toggle{
 	display: block;
+	float: left;
 	cursor: pointer;
-	padding: 20px 60px 30px 20px;
-	width: auto;
-	height: auto;
+	padding: 20px 0 0 25px;
+	width: 90px;
 }
 
 #nav-toggle span , #nav-toggle span:before , #nav-toggle span:after{
@@ -48,17 +45,18 @@ nav div {
 	content: '';
 	display: block;
 	background: white;
-	width: 36px;
-	height: 5px;
+	width: 33px;
+	height: 4px;
 	border-radius: 1px;
 	transition: all 500ms ease;
 }
 #nav-toggle span:before{
-	top: -10px;
+	top: -8px;
 }
 #nav-toggle span:after{
-	bottom: -10px;
+	bottom: -8px;
 }
+
 #nav-toggle:active span:before, #nav-toggle.active span:after {
   top: 0;
 }
@@ -67,35 +65,48 @@ nav div {
 }
 #nav-toggle:active span:before{
 	transform: rotate(45deg);
+	top: 0;
 }
 #nav-toggle:active span:after{
 	transform: rotate(-45deg);
+	bottom: 0;
+}
+
+#nav-toggle:hover + ul {
+	display: block;
 }
 
 nav ul {
 	position: absolute;
-	top: 3.2rem;
+	top: 50px;
 	z-index: 3;
+	display: none;
+}
+
+nav ul:hover {
+	display: block;
 }
 
 header h1 {
 	font-weight: normal;
 	font-size: 24px;
-/*	float: left;*/
-	/*margin-left: 50px;*/
 	display: inline;
 	width: auto;
 	padding: 0;
 	position: absolute;
 	top: 0;
 	left: 50%;
-	margin-left: -276px;
+	margin-left: -230px;
+}
+
+.score {
+	float: right;
 }
 
 header p {
 	float: right;
-	/*padding-right: 15px;*/
-	width: 105px;
+	width: 100px;
+	font-size: 16px;
 }
 
 .start-screen {
@@ -114,14 +125,18 @@ header p {
 }
 
 main {
+	width: 36rem;
+	margin: 15px auto;
+	box-sizing: border-box;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	text-align: center;
 	background-color: white;
-	padding: 20px 10px;
+	padding: 20px 0 30px;
 }
 
 #staff {
 	position: relative;
-	padding: 0 1rem;
+	padding: 0 1.8rem;
 	background-color: white;
 	height: 33rem;
 }
@@ -153,10 +168,11 @@ main {
 
 .pick {
 	z-index: 4;
+	cursor: pointer;
 }
 
-.selected {
-	background-color: rgb(177, 54, 177);
+.selected, .pick:active {
+	background-color: #F92BE1;
 }
 
 .whole-note:before {
@@ -184,7 +200,7 @@ main {
 	z-index: 0;
 	position: absolute;
 	top: -4rem;
-	left: 0;
+	left: .5rem;
 }
 
 .bassclef {
@@ -192,7 +208,7 @@ main {
 	z-index: 0;
 	position: absolute;
 	top: 0;
-	left: .5rem;
+	left: 1rem;
 }
 
 .rotate-out {
@@ -344,8 +360,8 @@ main {
 }
 
 button {	
-	box-shadow: 1px 1px 3px rgba(0,0,0,0.2), 1px 1px 2px rgba(0,0,0,0.3);
-  	transition: all 0.2s ease-in-out;
+	/*box-shadow: 1px 1px 3px rgba(0,0,0,0.2), 1px 1px 2px rgba(0,0,0,0.3);*/
+  	/*transition: all 0.2s ease-in-out;*/
 }
 
 .start-button {
@@ -362,37 +378,56 @@ button {
 }
 
 .quiz-button {
-	margin: 0;
+	margin: 0 1px 5px;
 	min-width: 4.5rem;
 	height: 3rem;
 	font-size: 1.4rem;
 	font-weight: bold;
-	background-color: rgb(70, 235, 69);
+	/*background-color: rgb(70, 235, 69);*/
 	color: #341BDB;
 	display: inline-block;
-	/*border-radius: 0;*/
-	border: none;
+	border-radius: 3px;
+	border: 1px solid #341BDB;
+	cursor: pointer;
 }
 
-button:active {
+button:active, .pick:active {
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-@media screen and (min-width: 500px) {
+
+button:focus {
+	outline: none;
+}
+
+@media screen and (max-width: 530px) {
 	main {
-		width: 40rem;
-		margin: 10px auto;
-		box-sizing: border-box;
-		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		width: auto;
+		margin-top: 0;
+		box-shadow: none;
+		z-index: -1;
+		border-top: 5px solid #341BDB;
+	}
+	.score {
+		width: 110px;
+		padding: 5px;
+	}
+	header p {
+		line-height: 20px;
+		height: auto;
+	}
+	#buttons {
+		margin: 0 62px;
 	}
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 660px) {
 	header h1 {
 		float: left;
 		position: static;
 		margin: 0;
 	}
+
 }
 
 
