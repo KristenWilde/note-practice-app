@@ -19,7 +19,7 @@ header, nav ul {
 	background: #1E1E1E;
 }
 
-header div, header h1, nav li, header p, #nav-toggle {
+header h1, nav li, header p, #nav-toggle {
 	height: 50px;
 	box-sizing: border-box;
 	line-height: 50px;
@@ -81,10 +81,20 @@ nav ul {
 	top: 50px;
 	z-index: 3;
 	display: none;
+	cursor: pointer;
 }
 
 nav ul:hover {
 	display: block;
+}
+
+nav a, a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+nav a:hover {
+	text-decoration: underline;
 }
 
 header h1 {
@@ -105,7 +115,7 @@ header h1 {
 
 header p {
 	float: right;
-	width: 100px;
+	width: 95px;
 	font-size: 16px;
 }
 
@@ -157,12 +167,11 @@ main {
 	border-radius: 50%;
 	position: absolute;
 	font-size: 18px;
+	line-height: 2rem;
 	color: white;
-	padding-top: .3rem;
 	text-align: center;
 	font-family: Arial;
 	font-variant: bold;
-	box-sizing: border-box;
 	z-index: 1;
 }
 
@@ -172,7 +181,8 @@ main {
 }
 
 .selected, .pick:active {
-	background-color: #F92BE1;
+	background: #F92BE1;
+	/*font-size: 20px;*/
 }
 
 .whole-note:before {
@@ -383,7 +393,7 @@ button {
 	height: 3rem;
 	font-size: 1.4rem;
 	font-weight: bold;
-	/*background-color: rgb(70, 235, 69);*/
+	background-color: #fff;
 	color: #341BDB;
 	display: inline-block;
 	border-radius: 3px;
@@ -395,7 +405,6 @@ button:active, .pick:active {
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-
 button:focus {
 	outline: none;
 }
@@ -404,17 +413,22 @@ button:focus {
 	main {
 		width: auto;
 		margin-top: 0;
-		box-shadow: none;
 		z-index: -1;
-		border-top: 5px solid #341BDB;
+		position: relative;
+	}
+	header {
+		height: auto;
 	}
 	.score {
-		width: 110px;
+		width: 100px;
 		padding: 5px;
 	}
 	header p {
-		line-height: 20px;
+		line-height: 1.5em;
 		height: auto;
+		font-size: 12px;
+		width: auto;
+		padding-right: 10px;
 	}
 	#buttons {
 		margin: 0 62px;
@@ -426,8 +440,11 @@ button:focus {
 		float: left;
 		position: static;
 		margin: 0;
+		font-size: 20px;
 	}
-
+	header p {
+		font-size: 14px;
+	}
 }
 
 

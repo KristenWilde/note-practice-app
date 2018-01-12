@@ -1,40 +1,54 @@
 $(function() {
-  var allNotes = [{noteId: "C6t", position: "-5rem", sound: 'sounds/c6.wav', classes: ".ledger-line-through .ledger-line-3below"},
-          {noteId: "B5t", position: "-4rem", sound: 'sounds/b5.wav'},
-          {noteId: "A5t", position: "-3rem", sound: 'sounds/a5.wav'},
 
-          {noteId: "G5t", position: "-2rem", sound: 'sounds/g5.wav'},
-          {noteId: "F5t", position: "-1rem", sound: 'sounds/f5.wav'},
-          {noteId: "E5t", position: "0", sound: 'sounds/e5.wav'},
-          {noteId: "D5t", position: "1rem", sound: "sounds/d5.wav"}, 
-          {noteId: "C5t", position: "2rem", sound: "sounds/c5.wav"}, 
-          {noteId: "B4t", position: "3rem", sound: 'sounds/b4.wav'}, 
-          {noteId: "A4t", position: "4rem", sound: 'sounds/a4.wav'}, 
-          {noteId: "G4t", position: "5rem", sound: 'sounds/g4.wav'}, 
-          {noteId: "F4t", position: "6rem", sound: 'sounds/f4.wav'}, 
-          {noteId: "E4t", position: "7rem", sound: 'sounds/e4.wav'}, 
-          {noteId: "D4t", position: "8rem", sound: 'sounds/d4.wav'}, 
-          {noteId: "C4t", position: "9rem", sound: 'sounds/c4.wav', classes: "ledger-line"},
+  var Note = {
+    init: function(data) {
+      this.id = data;
+      this.position = $('.' + data).css('top');
+      this.audio = $('#' + data.substr(0, 2));
+    },
+    play: function() {
+      this.audio.play();
+    },
+    practice: function() {
+
+    },
+
+  }
+
+
+  // var allNotes = [{noteId: "C6t", position: "-5rem", sound: 'sounds/c6.wav', classes: ".ledger-line-through .ledger-line-3below"},
+  //         {noteId: "B5t", position: "-4rem", sound: 'sounds/b5.wav'},
+  //         {noteId: "A5t", position: "-3rem", sound: 'sounds/a5.wav'},
+
+  //         {noteId: "G5t", position: "-2rem", sound: 'sounds/g5.wav'},
+  //         {noteId: "F5t", position: "-1rem", sound: 'sounds/f5.wav'},
+  //         {noteId: "E5t", position: "0", sound: 'sounds/e5.wav'},
+  //         {noteId: "D5t", position: "1rem", sound: "sounds/d5.wav"}, 
+  //         {noteId: "C5t", position: "2rem", sound: "sounds/c5.wav"}, 
+  //         {noteId: "B4t", position: "3rem", sound: 'sounds/b4.wav'}, 
+  //         {noteId: "A4t", position: "4rem", sound: 'sounds/a4.wav'}, 
+  //         {noteId: "G4t", position: "5rem", sound: 'sounds/g4.wav'}, 
+  //         {noteId: "F4t", position: "6rem", sound: 'sounds/f4.wav'}, 
+  //         {noteId: "E4t", position: "7rem", sound: 'sounds/e4.wav'}, 
+  //         {noteId: "D4t", position: "8rem", sound: 'sounds/d4.wav'}, 
+  //         {noteId: "C4t", position: "9rem", sound: 'sounds/c4.wav', classes: "ledger-line"},
           
-          {noteId: "C4b", position: "-3rem", sound: 'sounds/c4.wav', classes: "ledger-line"},
-          {noteId: "B3b", position: "-2rem", sound: 'sounds/b3.wav'},
-          {noteId: "A3b", position: "-1rem", sound: 'sounds/a3.wav'},
-          {noteId: "G3b", position: "0", sound: 'sounds/g3.wav'},
-          {noteId: "F3b", position: "1rem", sound: 'sounds/f3.wav'},
-          {noteId: "E3b", position: "2rem", sound: 'sounds/e3.wav'},
-          {noteId: "D3b", position: "3rem", sound: "sounds/d3.wav"}, 
-          {noteId: "C3b", position: "4rem", sound: "sounds/c3.wav"}, 
-          {noteId: "B2b", position: "5rem", sound: 'sounds/b2.wav'}, 
-          {noteId: "A2b", position: "6rem", sound: 'sounds/a2.wav'},
-          {noteId: "G2b", position: "7rem", sound: 'sounds/g2.wav'}, 
-          {noteId: "F2b", position: "8rem", sound: 'sounds/f2.wav'}, 
-          {noteId: "E2b", position: "9rem", sound: 'sounds/e2.wav'}, 
-          {noteId: "D2b", position: "10rem", sound: 'sounds/d2.wav'},
-          {noteId: "C2b", position: "11rem", sound: 'sounds/c2.wav'}];
+  //         {noteId: "C4b", position: "-3rem", sound: 'sounds/c4.wav', classes: "ledger-line"},
+  //         {noteId: "B3b", position: "-2rem", sound: 'sounds/b3.wav'},
+  //         {noteId: "A3b", position: "-1rem", sound: 'sounds/a3.wav'},
+  //         {noteId: "G3b", position: "0", sound: 'sounds/g3.wav'},
+  //         {noteId: "F3b", position: "1rem", sound: 'sounds/f3.wav'},
+  //         {noteId: "E3b", position: "2rem", sound: 'sounds/e3.wav'},
+  //         {noteId: "D3b", position: "3rem", sound: "sounds/d3.wav"}, 
+  //         {noteId: "C3b", position: "4rem", sound: "sounds/c3.wav"}, 
+  //         {noteId: "B2b", position: "5rem", sound: 'sounds/b2.wav'}, 
+  //         {noteId: "A2b", position: "6rem", sound: 'sounds/a2.wav'},
+  //         {noteId: "G2b", position: "7rem", sound: 'sounds/g2.wav'}, 
+  //         {noteId: "F2b", position: "8rem", sound: 'sounds/f2.wav'}, 
+  //         {noteId: "E2b", position: "9rem", sound: 'sounds/e2.wav'}, 
+  //         {noteId: "D2b", position: "10rem", sound: 'sounds/d2.wav'},
+  //         {noteId: "C2b", position: "11rem", sound: 'sounds/c2.wav'}];
 
-
-  var trebleArray = [];
-  var bassArray = [];
   var activeArray = [];
   var numberCorrect = 0;
 
