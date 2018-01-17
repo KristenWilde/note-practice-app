@@ -182,7 +182,7 @@ main {
 
 .selected, .pick:active {
 	background: #F92BE1;
-	/*font-size: 20px;*/
+	text-shadow: 1px 1px 1px #666666;
 }
 
 .whole-note:before {

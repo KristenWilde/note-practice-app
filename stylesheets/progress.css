@@ -1,0 +1,58 @@
+main {
+  padding: 25px;
+  overflow-x: auto;
+}
+
+main h1 {
+  font-size: 1.4rem;
+  padding-bottom: 15px
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+#tables {
+  text-align: left;
+}
+
+.note-data {
+  position: relative;
+  margin-bottom: 25px;
+  /*height: auto;*/
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 3px 5px;
+  width: 6.4em;
+  height: 1.7em;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.table-body {
+  position: relative;
+  left: 6.4em;
+  z-index: 1;
+}
+
+.table-headers {
+  position: fixed;
+  background: #ccc;
+  z-index: 2;
+}
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progress</title>
+  <link rel="stylesheet" href="stylesheets/reset.css">
+  <link rel="stylesheet" href="stylesheets/noteapp.css">
+  <link rel="stylesheet" href="stylesheets/progress.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" id="nav-toggle">
+        <span></span>
+      </a>
+      <ul>
+        <li><a href="#">Practice</a></li>
+        <li><a href="#">View Progress</a></li>
+        <li><a href="#">My Account</a></li>
+      </ul>
+    </nav>  
+    <h1>My Staff Practice</h1>  
+    <div class="score"> 
+      <p class="time">Time: <span class="minutes">0</span>:<span class="seconds">00</span></p>
+      <p>Correct: <span class="correct">30</span></p>
+    </div>
+  </header>
+
+  <main class="progress">
+    <h1>My Progress</h1>
+    <div id="tables"></div>
+
+    <script id="template" type="text/x-handlebars">
+      {{#each .}}
+        <div class='note-data'>
+          <h2>{{note}}</h2>
+          <!-- <img src={{thumbnail}} alt={{note}}> -->
+          <div class="table-container">
+            <table class="table-headers">
+              <tr><th>Date</th></tr>
+              <tr><th>Ave.Speed</th></tr>
+              <tr><th>Accuracy</th></tr>
+            </table>
+            <table class="table-body">
+              <tr>
+                {{#each practices}}
+                <td>{{date}}</td>
+                {{/each}}
+              </tr>
+              <tr>
+                {{#each practices}}
+                <td>{{speed}} seconds</td>
+                {{/each}}
+              </tr>
+              <tr>
+                {{#each practices}}
+                <td>{{accuracy}}%</td>
+                {{/each}}
+              </tr>
+            </table>
+          </div>
+        </div>
+      {{/each}}
+    </script>
+
+    <script src="progress.js"></script>
+  </main>
+</body>
+</html>
