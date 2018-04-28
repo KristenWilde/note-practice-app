@@ -19,8 +19,8 @@
 				<span></span>
 			</a>
 			<ul>
-				<li><a href="#">Practice</a></li>
-				<li><a href="#">View Progress</a></li>
+				<li><a href="index.html">Practice</a></li>
+				<li><a href="progressview.html">View Progress</a></li>
 				<li><a href="#">My Account</a></li>
 			</ul>
 		</nav>	
@@ -43,19 +43,12 @@
 				<div class="line four"></div>
 				<div class="line five"></div>
 			
-				<div class="wrapper pick C6t ll">
-					<div class="note C6t">C</div>
-					<div class="ledger-line" style="z-index:0"></div>
-					<div class="ledger-line" style="top:3rem"></div>
-				</div>
-				<div class="wrapper pick B5t ll">
-					<div class="note B5t">B</div>
-					<div class="ledger-line" style="top:2rem"></div>
-				</div>
-				<div class="wrapper pick A5t ll">
-					<div class="note A5t">A</div>
-					<div class="ledger-line" style="z-index:0"></div>
-				</div>
+	<!-- Use JS to add the ledger lines, based on position. 
+		ll class determines whether they're hidden. -->
+
+				<div class="note pick C6t ll">C</div>
+				<div class="note pick B5t ll">B</div>
+				<div class="note pick A5t ll">A</div>
 				<div class="note pick G5t">G</div>
 				<div class="note pick F5t">F</div>
 				<div class="note pick E5t">E</div>
@@ -67,24 +60,10 @@
 				<div class="note pick F4t">F</div>
 				<div class="note pick E4t">E</div>
 				<div class="note pick D4t">D</div>
-				<div class="wrapper pick C4t">
-					<div class="note">C</div>
-					<div class="ledger-line" style="z-index:0"></div>
-				</div>
-				<div class="wrapper pick B3t ll">
-					<div class="note B3t">B</div>
-					<div class="ledger-line-above"></div>
-				</div>
-				<div class="wrapper pick A3t ll">
-					<div class="note A3t">A</div>
-					<div class="ledger-line" style="z-index:0"></div>
-					<div class="ledger-line" style="top:-1rem"></div>
-				</div>
-				<div class="wrapper pick G3t ll">
-					<div class="note G3t">G</div>
-					<div class="ledger-line-above"></div>
-					<div class="ledger-line" style="top:-2rem"></div>
-				</div>
+				<div class="note pick C4t">C</div>
+				<div class="note pick B3t ll">B</div>
+				<div class="note pick A3t ll">A</div>
+				<div class="note pick G3t ll">G</div>
 			</div>
 
 			<div class="lines bass-lines">
@@ -95,24 +74,10 @@
 				<div class="line four"></div>
 				<div class="line five"></div>
 		
-				<div class="wrapper pick F4b ll">
-					<div class="note F4b">F</div>
-					<div class="ledger-line-below"></div>
-					<div class="ledger-line" style="top:4rem"></div>
-				</div>
-				<div class="wrapper pick E4b ll">
-					<div class="note E4b">E</div>
-					<div class="ledger-line" style="z-index:0"></div>
-					<div class="ledger-line" style="top:3rem"></div>
-				</div>
-				<div class="wrapper pick D4b ll">
-					<div class="note D4b">D</div>
-					<div class="ledger-line-below"></div>
-				</div>
-				<div class="wrapper pick C4b">
-					<div class="note">C</div>
-					<div class="ledger-line" style="z-index:0"></div>
-				</div>
+				<div class="note pick F4b ll">F</div>
+				<div class="note pick E4b ll">E</div>
+				<div class="note pick D4b ll">D</div>
+				<div class="note pick C4b">C</div>
 				<div class="note pick B3b">B</div>
 				<div class="note pick A3b">A</div>
 				<div class="note pick G3b">G</div>
@@ -123,20 +88,10 @@
 				<div class="note pick B2b">B</div>
 				<div class="note pick A2b">A</div>
 				<div class="note pick G2b">G</div>
-				<div class="note pick F2b">F</div>
-				<div class="wrapper pick ll E2b">
-					<div class="note E2b">E</div>
-					<div class="ledger-line" style="z-index:-1"></div>
-				</div>
-				<div class="wrapper pick ll D2b">
-					<div class="note D2b">D</div>
-					<div class="ledger-line-above"></div>
-				</div>
-				<div class="wrapper pick ll C2b">
-					<div class="note C2b">C</div>
-					<div class="ledger-line" style="z-index:-1"></div>
-					<div class="ledger-line" style="top:-1rem"></div>
-				</div>
+				<div class="note pick F2b ll">F</div>
+				<div class="note pick E2b ll">E</div>
+				<div class="note pick D2b ll">D</div>
+				<div class="note pick C2b ll">C</div>
 			</div>
 		</div>
 
@@ -152,12 +107,13 @@
 			</button><button type="button" class="quiz-button G">G</button>
 		</section>
 	</main>
-	<div class="end-screen">
+
+	<!-- <div class="end-screen">
 				<h1>Time's Up!</h1>
 				<h3>You got <span class="correct"></span> notes in 3 minutes!</h3>
 				<h2 class="message"></h2>
 							
-	</div>
+	</div> -->
 	
 	<audio preload="auto" id="c6" src="sounds/c6.wav" type="audio/wav"></audio>
 	<audio preload="auto" id="b5" src="sounds/b5.wav" type="audio/wav"></audio>

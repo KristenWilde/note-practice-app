@@ -1,4 +1,44 @@
+var Quiz = {
+  init: function() {}
+}
+
+const PX_PER_REM = 14;
+
+function drawLedgerLines() {    // adds to treblelines or basslines.
+  $('.ledger-line').remove();
+  $('.note:visible').each(function(){
+    console.log('drawLedgerLines was called');
+
+    function ledgerLine(topRem) {
+      return $("<div class='ledger-line'></div>").css({
+        top: topRem * PX_PER_REM,
+        left: lineLeftPx,
+      });
+    }
+
+    var $note = $(this);
+    var $staff = $note.parent();
+    var OFFSET_FROM_NOTE = 10;
+    var noteTopRem = parseFloat($note.css('top')) / PX_PER_REM;
+    var lineLeftPx = parseFloat($note.css('left')) - OFFSET_FROM_NOTE;
+    console.log($note.css('left'));
+    if (noteTopRem <= -3) {
+      $staff.append(ledgerLine(-2));
+      if (noteTopRem <= -5) {
+        $staff.append(ledgerLine(-4));
+      }
+    } else if (noteTopRem >= 9) {
+      $staff.append(ledgerLine(10));
+      if (noteTopRem >= 11) {
+        $staff.append(ledgerLine(12));
+      }
+    }
+  });
+}
+
 $(function() {
+
+  drawLedgerLines();
 
   var Note = {
     init: function(data) {
@@ -242,16 +282,6 @@ $(function() {
     $(this).toggleClass("selected");
   }
 
-   
-
-  var columnCounter = 2;
-
-$(".pick").each(function(){
-  if (columnCounter === 2) {columnCounter = 1;}
-  else {columnCounter = 2;}
-  var column = "col" + columnCounter; 
-  $(this).addClass(column);
-})
 
 //To check if all audio files have loaded:
 function audioReady(){
